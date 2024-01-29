@@ -1,0 +1,172 @@
+
+
+.main-section{
+    padding-top: 3%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+
+.colored-divs{
+    position: absolute;
+    width: 100%;
+    height: 200vh;
+    margin: 0;
+    padding: 0;
+}
+
+.colored-divs div{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.gradient-div{
+    top: 0;
+    background-image: linear-gradient(180deg, #080926 50%, #C252F2);
+}
+
+.one-color-div{
+    bottom: 0;
+    background-color: #C252F2;
+}
+
+
+@media only screen and (min-width: 600px){
+    .main-section{width: 95%;}
+}
+
+@media only screen and (min-width: 1000px){
+    .main-section{width: 75%;}
+}
+
+#editor-div .nav-item{
+    width: 100px;
+    border-style: solid;
+    border-width: 1px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    height: 40px;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+#editor-div .nav-item input{
+    padding-left: 5px;
+    color: aliceblue;
+    font-size: 15px;
+    background-color: transparent;
+    width: 100px;
+    height: 40px;
+    border: 0;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+#editor-div .activated{
+    border-color: #C252F2;
+}
+
+#editor-div .deactivated{
+    border-color: gray;
+}
+
+
+#editor-div .nav-link{
+    color: aliceblue;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#editor-div .add{
+    width: 35px;
+    height: 35px;
+    margin-top: auto;
+    margin-left: 10px;
+    margin-bottom: 3px;
+}
+
+#editor-div .editor{
+    
+    width: 100%;
+    height: 500px;
+    border-width: 1px;
+    border-color: #C252F2;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+#editor-div .editor.activated{
+    visibility: visible;
+}
+
+#editor-div .editor.deactivated{
+    visibility: collapse;
+}
+
+
+
+#editor-div #run{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    background-color: #2A26A6;
+}
+
+
+#console-div .nav-item{
+    width: 100px;
+    border: 0;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    height: fit-content;
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #D9D9D9;
+    z-index: 10;
+
+}
+
+#console-div .nav-link{
+    color: #000000;
+    
+}
+
+
+
+
+#console-div #results-console{
+    width: 100%;
+    height: 500px;
+    border-width: 1px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: #D9D9D9;
+   
+}
+
+
+#console-div .console-shadow{
+    -webkit-box-shadow: 0px 0px 40px -1px rgba(26,8,89,1);
+    -moz-box-shadow: 0px 0px 40px -1px rgba(26,8,89,1);
+    box-shadow: 0px 0px 40px -1px rgba(26,8,89,1);
+}
+
+
+#console-div #download{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    background-color: #2A26A6;
+}
+
