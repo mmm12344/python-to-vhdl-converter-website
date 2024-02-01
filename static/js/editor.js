@@ -77,7 +77,7 @@ function SwitchEditorSession(index){
 function AddEditorSession(){
     DeactivateEditors();
     var editorIdName = 'editor' + editorSessions.length;
-    editorHtml = '<div class="editor" id="'+editorIdName+'">from PythonToVhdlConverter.basic_converter import Entity, Input, Output, Signal, Architecture, Constant\nfrom PythonToVhdlConverter.data_types import Bit, Std_logic, Std_logic_vector, Integer, Array\nfrom PythonToVhdlConverter.to_vhdl import save_to_file\nfrom PythonToVhdlConverter.logic_converter import nand, xnor, nor, sra, sla, logic, process, rising_edge, falling_edge\nimport time</div>';
+    editorHtml = '<div class="editor activated" id="'+editorIdName+'">from PythonToVhdlConverter.basic_converter import Entity, Input, Output, Signal, Architecture, Constant\nfrom PythonToVhdlConverter.data_types import Bit, Std_logic, Std_logic_vector, Integer, Array\nfrom PythonToVhdlConverter.to_vhdl import save_to_file\nfrom PythonToVhdlConverter.logic_converter import nand, xnor, nor, sra, sla, logic, process, rising_edge, falling_edge\nimport time</div>';
     $("#run").before(editorHtml);
     var editor = ace.edit(editorIdName);
     editor.setTheme("ace/theme/dracula");
