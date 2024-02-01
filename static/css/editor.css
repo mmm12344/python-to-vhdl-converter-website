@@ -93,11 +93,11 @@ body{
 }
 
 #editor-div .editor.activated{
-    visibility: visible;
+    display: block;
 }
 
 #editor-div .editor.deactivated{
-    visibility: collapse;
+    display: none;
 }
 
 
@@ -176,11 +176,11 @@ body{
 }
 
 #console-div .result.activated{
-    visibility: visible;
+    display: block;
 }
 
 #console-div .result.deactivated{
-    visibility: collapse;
+    display: none;
 }
 
 
