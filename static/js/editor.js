@@ -22,7 +22,7 @@ resultsConsole.setOptions({
     fontSize: 17,  
 });
 
-resultSessions.push(resultsConsole)
+resultSessions.push(resultsConsole);
 
 
 
@@ -114,7 +114,7 @@ function AddResultSession(value){
         wrap: true,
         fontSize: 20  
     });
-    result.setValue(result.getValue())
+    result.setValue(result.getValue());
     resultSessions.push(result);
 }
 
@@ -125,12 +125,12 @@ function AddResultTab(name, value){
 }
 
 function SwitchResultSession(index){
-    DeactivateResults()
-    $('#console-div #result'+index).removeClass('deactivated').addClass('activated')
+    DeactivateResults();
+    $('#console-div #result'+index).removeClass('deactivated').addClass('activated');
 }
 
 function DeactivateResultTabs(){
-    $('#console-div .nav-item').removeClass('activated').addClass('deactivated')
+    $('#console-div .nav-item').removeClass('activated').addClass('deactivated');
 }
 
 function ActivateResultTab(tab){
@@ -139,20 +139,24 @@ function ActivateResultTab(tab){
     SwitchResultSession($(tab).index());
 }
 
+function ActivateConsoleTab(){
+    ActivateResultTab($('#console-div .nav-pills .nav-item'));
+}
+
 function DeleteAllResultTabs(){
     $('#console-div .result').each(function(){
         if(this.id != 'result0'){
-            $(this).remove()
+            $(this).remove();
         }
-    })
+    });
     $('#console-div .nav-item').each(function(index){
         if(index != 0){
-            $(this).remove()
+            $(this).remove();
         }
-    })
-    temp = resultSessions[0]
-    resultSessions = []
-    resultSessions.push(temp)
+    });
+    temp = resultSessions[0];
+    resultSessions = [];
+    resultSessions.push(temp);
 }
 
 

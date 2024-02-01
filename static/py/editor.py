@@ -1,6 +1,6 @@
 from pyscript import document
 from pyweb import pydom
-from js import editorSessions, resultsConsole, AddResultTab, DeleteAllResultTabs, window
+from js import editorSessions, resultsConsole, AddResultTab, DeleteAllResultTabs, window, ActivateConsoleTab
 import importlib, traceback, sys, os
 
 
@@ -20,6 +20,8 @@ def add_errors_to_console(trace):
 
 def RunConverter(event):
     DeleteAllResultTabs()
+    
+    ActivateConsoleTab()
     
     tabs = pydom['#editor-div .nav-pills .nav-link']
     tab_names = []
