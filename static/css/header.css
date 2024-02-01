@@ -13,12 +13,21 @@ header .navbar{
     margin-right: auto;
 }
 
+header .navbar-brand p{display: none;}
+
+@media only screen and (min-width: 380px) {
+    header .navbar{width: 95%;}
+    header .navbar-brand p{display: block;}
+}
+
 @media only screen and (min-width: 600px){
     header .navbar{width: 95%;}
+    header .navbar-brand p{display: block;}
 }
 
 @media only screen and (min-width: 1000px){
     header .navbar{width: 75%;}
+    header .navbar-brand p{display: block;}
 }
 
 header .navbar-brand{
