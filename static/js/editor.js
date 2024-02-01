@@ -1,7 +1,7 @@
 
 
 var editorSessions = [];
-
+var resultSessions = [];
 
 
 AddEditorSession();
@@ -9,17 +9,23 @@ AddEditorSession();
 
 
 
-var resultsConsole = ace.edit("results-console");
-resultsConsole.setTheme("ace/theme/chrome")
+var resultsConsole = ace.edit("result0");
+resultsConsole.setTheme("ace/theme/chrome");
 resultsConsole.session.setMode("ace/mode/powershell");
+resultsConsole.setHighlightActiveLine(false);
+resultsConsole.setReadOnly(true);
 
 resultsConsole.setOptions({
     autoScrollEditorIntoView: true,
     copyWithEmptySelection: true,
     wrap: true,
-    fontSize: 20,  
-    setReadOnly: true,
+    fontSize: 17,  
 });
+
+resultSessions.push(resultsConsole)
+
+
+
 
 
 
@@ -36,12 +42,12 @@ function TapFormElement(){
 function ChangeTapName(tab){
     var value = $(tab)[0][0].value;
     var parent = $(tab).parent();
-    parent.html('<a href="#" class="nav-link">'+value+'</a>');
+    parent.html('<a href="javascript:void(0);" class="nav-link">'+value+'</a>');
     return false;
 }
 
 function AddTap(){
-    tapHtml = '<li class="nav-item activated d-flex flex-column" ondblclick="AddFormToTab(this)" onclick="ActivateTab(this)">'+TapFormElement()+'</li>';
+    tapHtml = '<li class="nav-item activated" ondblclick="AddFormToTab(this)" onclick="ActivateTab(this)">'+TapFormElement()+'</li>';
     MakeAllTapsDeactivated();
     $("#editor-div .nav-pills").append(tapHtml);
     AddEditorSession();
@@ -80,17 +86,83 @@ function AddEditorSession(){
         autoScrollEditorIntoView: true,
         copyWithEmptySelection: true,
         wrap: true,
-        fontSize: 20  
+        fontSize: 17,  
     });
     editorSessions.push(editor);
 }
-
 
 function GetTabInfo(index){
     tabName = $('#editor nav-pills')[0][index][0].value;
     tabContent = editorSessions[index].getValue();
     return tabName, tabContent;
 }
+
+function DeactivateResults(){
+    $('#console-div .result').removeClass('activated').addClass('deactivated');
+}
+
+function AddResultSession(value){
+    var resultIdName = 'result' + resultSessions.length;
+    resultHtml = '<div class="result console-shadow deactivated" id="'+resultIdName+'">'+value+'</div>';
+    $("#download").before(resultHtml);
+    var result = ace.edit(resultIdName);
+    result.setTheme("ace/theme/chrome");
+    result.session.setMode("ace/mode/vhdl");
+    result.setOptions({
+        autoScrollEditorIntoView: true,
+        copyWithEmptySelection: true,
+        wrap: true,
+        fontSize: 20  
+    });
+    result.setValue(result.getValue())
+    resultSessions.push(result);
+}
+
+function AddResultTab(name, value){
+    tabHtml = '<li class="nav-item deactivated console-shadow" onclick="ActivateResultTab(this)"><a href="javascript:void(0);" class="nav-link">'+name+'</a></li>';
+    $('#console-div .nav-pills').append(tabHtml);
+    AddResultSession(value);
+}
+
+function SwitchResultSession(index){
+    DeactivateResults()
+    $('#console-div #result'+index).removeClass('deactivated').addClass('activated')
+}
+
+function DeactivateResultTabs(){
+    $('#console-div .nav-item').removeClass('activated').addClass('deactivated')
+}
+
+function ActivateResultTab(tab){
+    DeactivateResultTabs();
+    $(tab).removeClass('deactivated').addClass('activated');
+    SwitchResultSession($(tab).index());
+}
+
+function DeleteAllResultTabs(){
+    $('#console-div .result').each(function(){
+        if(this.id != 'result0'){
+            $(this).remove()
+        }
+    })
+    $('#console-div .nav-item').each(function(index){
+        if(index != 0){
+            $(this).remove()
+        }
+    })
+    temp = resultSessions[0]
+    resultSessions = []
+    resultSessions.push(temp)
+}
+
+
+
+
+
+
+
+
+
 
 
 

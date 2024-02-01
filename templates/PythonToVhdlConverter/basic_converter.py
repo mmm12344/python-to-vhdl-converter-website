@@ -88,7 +88,7 @@ class Architecture():
         Parameters:
             ?:?
         """
-        self.file_name = architecture_class.path.split("\\")[-1].split(".")[0]
+        self.file_name = architecture_class.path.split("\\")[-1].split("/")[-1].split(".")[0]
         self.architecture_class = architecture_class
         self.entity_name = architecture_class.entity.entity_class.name
         try:
