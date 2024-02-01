@@ -21,7 +21,7 @@ def add_errors_to_console(trace):
 def RunConverter(event):
     DeleteAllResultTabs()
     
-    tabs = pydom['#editor-div .nav-link']
+    tabs = pydom['#editor-div .nav-pills .nav-link']
     tab_names = []
     for tab in tabs:
         tab_names.append(tab.html)
@@ -37,11 +37,10 @@ def RunConverter(event):
         index+=1
         
       
-    for index in range(len(tab_names)-1):
+    for index in range(len(tab_names)):
         with open(tab_names[index]+'.py', 'w') as f:
             f.write(tab_contents[index])
             
-    print('hi') 
             
     add_command_to_console(f'python {tab_names[parent_tap_index]}.py')
     
