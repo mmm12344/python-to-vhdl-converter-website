@@ -23,6 +23,10 @@ def RunConverter(event):
     
     ActivateConsoleTab()
     
+    if not os.path.exists('./PythonToVhdlConverter/__init__.py'):
+        with open('./PythonToVhdlConverter/__init__.py', 'w') as f:
+            f.writelines(['components = []\n', 'files = []\n', 'from .tokens import *\n'])
+    
     tabs = pydom['#editor-div .nav-pills .nav-link']
     tab_names = []
     for tab in tabs:
