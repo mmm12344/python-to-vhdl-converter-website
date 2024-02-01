@@ -26,6 +26,10 @@ body{
     .main-section{width: 75%;}
 }
 
+#editor-div{
+    margin-top: 30px;
+}
+
 #editor-div .nav-item{
     width: 150px;
     border-style: solid;
