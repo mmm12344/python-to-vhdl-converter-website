@@ -23,7 +23,14 @@ header .navbar{
 
 header .navbar-brand{
     color: aliceblue;
+    margin: auto;
 }
+
+header .navbar-brand img{
+    margin-right: 20px;
+}
+
+
 
 header .nav-item{
     width: 100px;
