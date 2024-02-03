@@ -43,6 +43,7 @@ function ChangeTapName(tab){
     var value = $(tab)[0][0].value;
     var parent = $(tab).parent();
     parent.html('<a href="javascript:void(0);" class="nav-link">'+value+'</a>');
+    parent.css('border-color', '#C252F2');
     return false;
 }
 
@@ -56,6 +57,7 @@ function AddTap(){
 
 function AddFormToTab(tab){
     $(tab).html(TapFormElement());
+    $(tab).css('border-color', 'lightblue');
 }
 
 function ActivateTab(tab){

@@ -7,14 +7,20 @@ import importlib, traceback, sys, os
 
 
 def add_lines_to_console(lines):
-    
-    resultsConsole.insert(lines+'\n')
+    value = resultsConsole.getValue()
+    resultsConsole.setValue(value + '\n' + lines+'\n')
     
 def add_command_to_console(line):
-    resultsConsole.insert("User > "+ line + '\n')
+    value = resultsConsole.getValue()
+    resultsConsole.setValue(value + '\n' + "User > "+ line + '\n')
     
 def add_errors_to_console(trace):
-    resultsConsole.insert(trace+'\n')
+    value = resultsConsole.getValue()
+    resultsConsole.setValue(value + '\n' + trace+'\n')
+    
+def add_warning_to_console(line):
+    value = resultsConsole.getValue()
+    resultsConsole.setValue(value + '\n' + 'Warning: ' + line + '\n')
     
 
 
@@ -59,7 +65,7 @@ def RunConverter(event):
     try:
         module = importlib.import_module(tab_names[parent_tap_index])
         importlib.reload(module)
-        add_lines_to_console("Convertion Successfull !!")
+        add_lines_to_console("Conversion Successfull !!")
     except BaseException as e:
         add_errors_to_console(traceback.format_exc())
         return
@@ -67,8 +73,11 @@ def RunConverter(event):
     result_dir = tab_names[parent_tap_index]+'__results/'
     
     for name in tab_names:
-        with open(result_dir+name+'.vhdl', 'r') as f:
-            AddResultTab(name ,f.read())
+        try:
+            with open(result_dir+name+'.vhdl', 'r') as f:
+                AddResultTab(name ,f.read())
+        except:
+            add_warning_to_console(name + " is either empty or undefined.")
     
     
             
