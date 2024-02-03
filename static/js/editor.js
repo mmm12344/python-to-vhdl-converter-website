@@ -48,9 +48,10 @@ function ChangeTapName(tab){
 }
 
 function AddTap(){
-    tapHtml = '<li class="nav-item activated" ondblclick="AddFormToTab(this)" onclick="ActivateTab(this)">'+TapFormElement()+'</li>';
+    tapHtml = '<li class="nav-item activated" ondblclick="AddFormToTab(this)" onclick="ActivateTab(this)"></li>';
     MakeAllTapsDeactivated();
     $("#editor-div .nav-pills").append(tapHtml);
+    AddFormToTab($("#editor-div .nav-pills .nav-item").last());
     AddEditorSession();
     
 }
